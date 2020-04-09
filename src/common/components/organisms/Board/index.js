@@ -5,7 +5,7 @@ import MaterialButton from 'common/components/atoms/Button/MaterialButton';
 const Board = () => {
   return(
     <>
-      <MaterialButton variant="contained" color="primary" >test</MaterialButton>
+      <MaterialButton variant="contained" color="default" >Add</MaterialButton>
       <Table/>
     </>
   );

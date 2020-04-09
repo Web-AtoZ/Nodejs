@@ -1,17 +1,10 @@
 import {NoAuthAjax} from './Ajax';
 
-async function getBoard() {
+async function getBoards() {
   let response;
 
-  // const params = {
-  //   offset: !!offset ? offset : 0,
-  //   limit: !!limit ? limit : 100,
-  //   from_date: from_date,
-  //   to_date: to_date,
-  // };
-  
   try {
-    response = await NoAuthAjax.get('/v1/board');
+    response = await NoAuthAjax.get('/v1/boards');
     //  + stringify(params)
   } catch (e) {
     if (e.response.data.message) {
@@ -22,4 +15,8 @@ async function getBoard() {
   }
 
   return response.data.data;
+}
+
+export default {
+  getBoards,
 }
