@@ -1,14 +1,15 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Board from 'common/components/organisms/Board';
+import {observer} from 'mobx-react';
+import BoardListTable from 'common/components/organisms/Board/BoardListTable';
+import BoardAddButton from 'common/components/organisms/Board/BoardAddButton';
 
-
-export default function BoardTemplate() {
+export default observer(function BoardTemplate({boardList}) {
   return (
     <Grid item xs={10}>
-      <Board/>
+      <BoardAddButton/>
+      <BoardListTable data={boardList}/>
     </Grid>
   );
-}
+});
 

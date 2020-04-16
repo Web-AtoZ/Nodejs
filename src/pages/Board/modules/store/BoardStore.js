@@ -1,10 +1,12 @@
-import { observable, action, computed, asyncAction } from "mobx";
+import { observable, action } from "mobx";
 import boardRepository from '../repository/BoardRepository';
 import BoardModel from '../model/BoardModel';
+import {autobind} from 'core-decorators';
 
+@autobind
 class BoardStore {
     @observable
-    boardList = [];
+    boardList  = [];
 
     constructor(rootStore) {
         this.rootStore = rootStore;
@@ -13,10 +15,11 @@ class BoardStore {
     // 비동기인 경우 @action 대신 @asyncAction
     @action
     async findAll() {
-        const {data, status} = await boardRepository.findAll();
-            
+        const {data:{data}, status} = await boardRepository.findAll()
+        ,{boards} = data;
+
         if(status === 200) 
-            this.boardList = data.map(board => new BoardModel());
+            this.boardList = boards.map(board => new BoardModel(board));
     }
 
     // @action

@@ -1,18 +1,23 @@
 import React, {useEffect} from 'react';
-import {inject,observer} from 'mobx-react';
+import {observer} from 'mobx-react';
+import useStores from 'useStores';
+import BoardTemplate from 'pages/Board/templates/BoardTemplate';
 
-const BoardContainer = ({boardList, findAll}) => {
+const BoardContainer = observer(() => {
+    const {boardStore:{findAll, boardList}} = useStores();
+
     useEffect(() => {
         findAll();
-
+    /* eslint-disable */
     }, [])
-    return(
-        <h1>{boardList}</h1>
-    );
-}
 
-export default inject(({boardStore}) => ({
-    findAll : boardStore.findAll,
-    boardList : boardStore.boardList
+    return(<BoardTemplate boardList={boardList} />);
+})
 
-}))(observer(BoardContainer));
+export default BoardContainer;
+
+// export default inject(({boardStore}) => ({
+//     findAll : boardStore.findAll,
+//     boardList : boardStore.boardList
+
+// }))(observer(BoardContainer));

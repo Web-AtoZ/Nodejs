@@ -1,6 +1,7 @@
 import { extendObservable, computed, action } from "mobx";
+import {autobind} from 'core-decorators';
 
-//@Autobind
+@autobind
 class BoardModel {
     constructor(data) {
         // Object.assign 처럼 property와 값을 Target 오브젝트에 합쳐 주는데 
@@ -10,8 +11,8 @@ class BoardModel {
     }
 
     @computed
-    get title() {
-        return this.title
+    get titles() {
+        return this.title;
     }
 
     @action
@@ -29,7 +30,7 @@ export default BoardModel;
 // class BoardModel {
 //     @observable
 //     title;
-  
+
 //     constructor(data) {
 //       set(this, data);
 //     }
