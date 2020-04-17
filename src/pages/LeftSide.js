@@ -6,28 +6,36 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import DashboardIcon from '@material-ui/icons/Dashboard';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import PeopleIcon from '@material-ui/icons/People';
 import BarChartIcon from '@material-ui/icons/BarChart';
 import LayersIcon from '@material-ui/icons/Layers';
+import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 import AssignmentIcon from '@material-ui/icons/Assignment';
+import {useHistory} from 'react-router-dom';
 
 const LeftSide = () => {
+  const history = useHistory();
   const classes = useStyles();
+
+  const moveToLink = (link) =>{
+    history.push(link);
+  }
+
   return (
     <Grid item xs={2}>
     <div>
+
     <ListItem button>
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
       <ListItemText primary="Dashboard" />
     </ListItem>
-    <ListItem button>
+    <ListItem button onClick={() => moveToLink('/boards')}>
       <ListItemIcon>
-        <ShoppingCartIcon />
+        <LibraryBooksIcon />
       </ListItemIcon>
-      <ListItemText primary="Orders" />
+      <ListItemText primary="Boards"/>
     </ListItem>
     <ListItem button>
       <ListItemIcon>

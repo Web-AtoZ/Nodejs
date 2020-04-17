@@ -1,8 +1,10 @@
 import React from 'react';
+import BoardForm from 'common/components/organisms/Board/BoardForm';
+
 
 const BoardFormTemplate = () => {
   return(
-    <h1>hello</h1>
+    <BoardForm/>
   );
 }
 

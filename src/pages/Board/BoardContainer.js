@@ -4,8 +4,10 @@ import useStores from 'useStores';
 import BoardTemplate from 'pages/Board/templates/BoardTemplate';
 
 const BoardContainer = observer(() => {
+    // 함수형에서 @inject 같은 역할
     const {boardStore:{findAll, boardList}} = useStores();
 
+    // ComponentDidMount() 역할
     useEffect(() => {
         findAll();
     /* eslint-disable */

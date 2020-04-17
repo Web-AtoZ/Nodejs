@@ -16,9 +16,9 @@ ReactDOM.render(
   <Provider {...root}>
     <div className={{flexGrow: 1}}>
       <Grid container spacing={3}>
+      <Router>
         <Header/>
         <LeftSide/>
-        <Router>
           <Switch>
             <Route exact path="/" component={App}/>
             <Route path="/boards" component={Board}/>

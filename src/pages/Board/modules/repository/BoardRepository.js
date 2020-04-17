@@ -10,6 +10,14 @@ class BoardRepository {
     findAll() {
         return NoAuthAjax.get(this.URL);
     }
+
+    findById(id) {
+        //return NoAuthAjax.get(`${this.URL}/${id}`);
+    }
+
+    save(BoardModel) {
+        //return NoAuthAjax.post(this.URL);
+    }
 }
 
 // 싱글톤으로 리턴
