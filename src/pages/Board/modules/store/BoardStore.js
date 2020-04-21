@@ -13,25 +13,22 @@ class BoardStore {
         this.rootStore = rootStore;
     }
 
-    [{}]
     // 비동기인 경우 @action 대신 @asyncAction
     @action
     async findAll() {
         const {data, status} = await boardRepository.findAll()
         ,{boards} = data;
 
-        if(status === 200) 
-            this.boardList = boards.map(board => new BoardModel(board));
+        if(status === 200) this.boardList = boards.map(board => new BoardModel(board));
     }
     
     @action
     async save(board) {
         const param = new Board(board);
         console.log(param);
-        // const {data, status} = await boardRepository.save(param);
+        const {data, status} = await boardRepository.save(param);
         
-        // if(status === 200)
-        //     this.boardList = [...this.boardList, param];
+        if(status === 200) this.boardList = [...this.boardList, param];
 
         return "success";
     }

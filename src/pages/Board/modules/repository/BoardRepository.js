@@ -15,8 +15,8 @@ class BoardRepository {
         //return NoAuthAjax.get(`${this.URL}/${id}`);
     }
 
-    save(BoardModel) {
-        //return NoAuthAjax.post(this.URL);
+    save(boardModel) {
+        return NoAuthAjax.post(this.URL, boardModel);
     }
 }
 

@@ -9,7 +9,7 @@ const BoardContainer = observer(() => {
 
     // ComponentDidMount() 역할
     useEffect(() => {
-        findAll();
+        findAll().catch(e => console.log(e.message));
     /* eslint-disable */
     }, [])
 

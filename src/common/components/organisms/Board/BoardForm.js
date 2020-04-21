@@ -12,10 +12,11 @@ const BoardForm = observer(() => {
   const [value, setValue] = useState('');
   const {boardStore:{save}} = useStores();
   const {register, handleSubmit, errors} =useForm();
-
+  
   const onSubmit = data => {
     const form = {...data, content:value}
-    save(form);
+    save(form).catch(e=>console.log(e.message));
+
   }
 
   return(
