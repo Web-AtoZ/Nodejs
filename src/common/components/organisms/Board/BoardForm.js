@@ -1,12 +1,13 @@
 import React,{useState} from 'react';
 import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
-import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import { useForm } from 'react-hook-form';
 import Button from '@material-ui/core/Button';
 import {observer} from 'mobx-react';
 import useStores from 'useStores';
+import styled from 'styled-components';
+import 'react-quill/dist/quill.snow.css';
+import 'Util/css/quill.css'
 
 const BoardForm = observer(() => {
   const [value, setValue] = useState('');
@@ -19,8 +20,8 @@ const BoardForm = observer(() => {
   }
 
   return(
-    <Grid direction="column" xs="6">
-        <TextField
+    <>
+      <TextField
           id="standard-full-width"
           label="Title"
           InputLabelProps={{shrink: true}}
@@ -33,10 +34,19 @@ const BoardForm = observer(() => {
           error={errors.title ? true : false}
           helperText={errors.title ? "Required title" : ""}
       />
-      <ReactQuill name='content' theme="snow" value={value} onChange={setValue}/>
+      <Editor>
+        <ReactQuill name='content' theme="snow" value={value} onChange={setValue}/>
+      </Editor>
+      <input type='hidden' name='user_id' ref={register({required:true})} value={1}/>
+      <input type='hidden' name='option_id' ref={register({required:true})} value={1}/>
       <Button variant="contained" color="primary" onClick={handleSubmit(onSubmit)}>제출</Button>
-    </Grid>
+    </>
   );
 })
 
 export default BoardForm;
+
+const Editor = styled('div')`
+  margin-top: 10px;
+  margin-bottom: 20px;
+`
