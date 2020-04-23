@@ -3,32 +3,15 @@ import {autobind} from 'core-decorators';
 
 @autobind
 class Board {
-    @observable
-    board_id;
-
-    @observable
-    title;
-
-    @observable
-    content;
-
-    @observable
-    view = 0;
-
-    @observable
-    user_id;
-
-    @observable
-    option_id;
-
-    @observable
-    created_date;
-
-    @observable
-    updated_date;
-
-    @observable
-    deleted_date;
+    @observable board_id;
+    @observable title;
+    @observable content;
+    @observable view = 0;
+    @observable user_id;
+    @observable option_id;
+    @observable created_date;
+    @observable updated_date;
+    @observable deleted_date;
 
     constructor(data) {
       set(this, data);
