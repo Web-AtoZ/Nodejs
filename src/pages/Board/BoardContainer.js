@@ -9,7 +9,7 @@ const BoardContainer = observer(() => {
 
     // ComponentDidMount() 역할
     useEffect(() => {
-        findAll();
+        findAll().catch(e => console.log(e.message));
     /* eslint-disable */
     }, [])
 
@@ -21,5 +21,4 @@ export default BoardContainer;
 // export default inject(({boardStore}) => ({
 //     findAll : boardStore.findAll,
 //     boardList : boardStore.boardList
-
 // }))(observer(BoardContainer));

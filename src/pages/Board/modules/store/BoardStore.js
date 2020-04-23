@@ -18,10 +18,13 @@ class BoardStore {
     @action
     async findAll() {
         const {data, status} = await boardRepository.findAll()
-        ,{boards} = data;
+        , {boards} = data;
 
         if(status === 200) 
             this.boardList = boards.map(board => new BoardModel(board));
+        
+        if(status !== 200)
+            throw new Error(status);
     }
     
     @action
