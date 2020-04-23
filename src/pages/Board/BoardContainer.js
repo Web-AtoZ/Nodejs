@@ -13,7 +13,7 @@ const BoardContainer = observer(() => {
     /* eslint-disable */
     }, [])
 
-    return(<BoardTemplate boardList={boardList} />);
+    return (<BoardTemplate boardList={boardList} />);
 })
 
 export default BoardContainer;

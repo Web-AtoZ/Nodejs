@@ -1,8 +1,12 @@
 import React from 'react';
+import Grid from '@material-ui/core/Grid';
+import BoardDetail from 'common/components/organisms/Board/BoardDetail';
 
-const BoardDetailTemplate = ({match}) => {
+const BoardDetailTemplate = ({board}) => {
   return(
-    <h2>{match.params.id}</h2>
+      <Grid item xs={7}>
+        <BoardDetail board={board}/>
+     </Grid>
   );
 }
 

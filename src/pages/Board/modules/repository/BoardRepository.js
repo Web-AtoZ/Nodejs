@@ -12,7 +12,7 @@ class BoardRepository {
     }
 
     findById(id) {
-        //return NoAuthAjax.get(`${this.URL}/${id}`);
+        return NoAuthAjax.get(`${this.URL}/${id}`);
     }
 
     save(boardModel) {

@@ -6,18 +6,25 @@ import {autobind} from 'core-decorators';
 
 @autobind
 class BoardStore {
-    @observable
-    boardList  = [];
+    @observable boardList = [];
+    @observable board = new Board();
 
     constructor(rootStore) {
         this.rootStore = rootStore;
+    }
+
+    @action
+    getBoard(id) {
+        const findBoard = this.boardList.filter(({board_id}) => Number(id) === board_id);
+
+        findBoard.length > 0 ? this.board = findBoard[0] : this.findById(id);
     }
 
     // 비동기인 경우 @action 대신 @asyncAction
     @action
     async findAll() {
         const {data, status} = await boardRepository.findAll()
-        , {boards} = data;
+        , {data: {boards}} = data;
 
         if(status === 200) this.boardList = boards.map(board => new BoardModel(board));
     }
@@ -25,11 +32,18 @@ class BoardStore {
     @action
     async save(board) {
         const param = new Board(board);
-        console.log(param);
         const {data, status} = await boardRepository.save(param);
         
         if(status === 200) this.boardList = [...this.boardList, param];
     }
+
+    @action
+    async findById(id) {
+        const {data, status} = await boardRepository.findById(id);
+        
+        if(status === 200) this.board = new Board(data);  
+    }
+
     // @action
     // removeBoard(index) {
     //     this.boardList.splice(index, 1)

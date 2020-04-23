@@ -105,6 +105,7 @@ export default function BoardListTable({data}) {
   const moveBoardDetail = (board_id) => {
     history.push(`/boards/${board_id}`);
   };
+
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">

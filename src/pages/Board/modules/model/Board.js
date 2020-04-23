@@ -4,8 +4,8 @@ import {autobind} from 'core-decorators';
 @autobind
 class Board {
     @observable board_id;
-    @observable title;
-    @observable content;
+    @observable title = '';
+    @observable content = '';
     @observable view = 0;
     @observable user_id;
     @observable option_id;
