@@ -1,10 +1,11 @@
 import React,{useState} from 'react';
-import ReactQuill from 'react-quill';
-import TextField from '@material-ui/core/TextField';
 import { useForm } from 'react-hook-form';
-import Button from '@material-ui/core/Button';
 import {observer} from 'mobx-react';
 import useStores from 'useStores';
+import {useHistory} from 'react-router-dom';
+import ReactQuill from 'react-quill';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
 import 'react-quill/dist/quill.snow.css';
 import 'Util/css/quill.css'
@@ -13,10 +14,14 @@ const BoardForm = observer(() => {
   const [value, setValue] = useState('');
   const {boardStore:{save}} = useStores();
   const {register, handleSubmit, errors} =useForm();
-
+  const history = useHistory();
+  
   const onSubmit = data => {
     const form = {...data, content:value}
-    save(form);
+    save(form)
+      .then(history.push('/boards'))
+      .catch(e=>console.log(e.message));
+    
   }
 
   return(
