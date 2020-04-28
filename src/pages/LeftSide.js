@@ -24,12 +24,11 @@ const LeftSide = () => {
   return (
     <Grid item xs={2}>
     <div>
-
-    <ListItem button>
+    <ListItem button onClick={() => moveToLink('/')}>
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
-      <ListItemText primary="Dashboard" />
+      <ListItemText primary="Main" />
     </ListItem>
     <ListItem button onClick={() => moveToLink('/boards')}>
       <ListItemIcon>
@@ -37,11 +36,11 @@ const LeftSide = () => {
       </ListItemIcon>
       <ListItemText primary="Boards"/>
     </ListItem>
-    <ListItem button>
+    <ListItem button onClick={() => moveToLink('/users/login')}> 
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
-      <ListItemText primary="Customers" />
+      <ListItemText primary="Login" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>

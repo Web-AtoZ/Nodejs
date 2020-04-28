@@ -3,7 +3,7 @@ import boardRepository from '../repository/BoardRepository';
 import BoardModel from '../model/BoardModel';
 import Board from '../model/Board';
 import {autobind} from 'core-decorators';
-
+import {isExist} from 'Util/Utils';
 @autobind
 class BoardStore {
     @observable boardList = [];
@@ -16,7 +16,12 @@ class BoardStore {
     @action
     getBoard(id) {
         const findBoard = this.boardList.filter(({board_id}) => Number(id) === board_id);
-        findBoard.length > 0 ? this.board = findBoard[0] : this.findById(id);
+        isExist(findBoard) ? this.board = findBoard[0] : this.findById(id).catch(e=>console.log(e));
+    }
+    @action
+    updateBoard(id, board) {
+        this.board = board;
+        this.update(id, board).catch(e=>console.log(e));
     }
 
     // 비동기인 경우 @action 대신 @asyncAction

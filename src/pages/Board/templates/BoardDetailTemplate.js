@@ -1,12 +1,12 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import BoardDetail from 'common/components/organisms/Board/BoardDetail';
+import BoardFormContainer from 'cocommon/components/organisms/Board/BoardFormContainer
 
 
 const BoardDetailTemplate = () => {
   return(
       <Grid item xs={7}>
-        <BoardDetail/>
+        <BoardFormContainer/>
      </Grid>
   );
 }

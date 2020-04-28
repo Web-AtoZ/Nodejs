@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useCallback} from 'react';
 import TextField from '@material-ui/core/TextField';
 import 'react-quill/dist/quill.snow.css';
 import 'Util/css/quill.css'
@@ -10,33 +10,31 @@ import Button from '@material-ui/core/Button';
 import { useForm } from 'react-hook-form';
 import {useParams} from 'react-router-dom';
 
-const BoardDetail = observer(() => {
-  const {boardStore:{board, update}} = useStores();
+const BoardFormContainer = observer(({type}) => {
+  const {boardStore:{board, updateBoard}} = useStores();
   const {register, handleSubmit, errors} =useForm();
   const params = useParams();  
   const [isWrite, changeMode] = useState(false);
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
 
-  useEffect(()=>{
+  const updateMode = useCallback(() => {
+    changeMode(!isWrite);
     setTitle(board.title);
     setContent(board.content);
-  },[board])
+  },[board.content, board.title, isWrite]);
 
-  const updateMode = () => {
-    changeMode(!isWrite);
-  }
-  const deleteBoard= () => {
+  const deleteBoard= useCallback(() => {
     console.log('hello');
-  }
+  },[]);
   
-  const onUpdate = data => {
-    const form = {...data, content: content}
-    update(params.id, form)
-      .then(changeMode(false))
-      .catch(e=>console.log(e.message));
-  }
+  const onSubmit = useCallback(data => {
+    const form = {...board, ...data, content: content}
+    updateBoard(params.id, form);
+    changeMode(false);
+  },[board, content, params.id, updateBoard]);
 
+  
   return (
     <>
       <BoardNav onClickUpdate={updateMode} onClickDelete={deleteBoard}/>
@@ -46,7 +44,7 @@ const BoardDetail = observer(() => {
         name='title'
         fullWidth
         margin="normal"
-        value={title}
+        value={isWrite ? title : board.title}
         inputRef={register({required: true})}
         InputProps={isWrite ? null : {readOnly: true,}}
         onChange={({target:{value}})=> setTitle(value)}
@@ -55,12 +53,12 @@ const BoardDetail = observer(() => {
       <input type='hidden' name='option_id' ref={register({required:true})} value={1}/>
       {isWrite ? <>
                   <ReactQuill name='content' theme="snow" value={content} onChange={setContent}/>
-                  <Button variant="contained" color="primary" onClick={handleSubmit(onUpdate)}>제출</Button>
+                  <Button variant="contained" color="primary" onClick={handleSubmit(onSubmit)}>제출</Button>
                 </>
-                : <ReactQuill name='content' theme="bubble" value={content} readOnly/>
+                : <ReactQuill name='content' theme="bubble" value={board.content} readOnly/>
       }
     </>
   );
 })
 
-export default BoardDetail;
+export default BoardFormContainer;

@@ -12,7 +12,7 @@ const BoardDetailContainer = observer(() => {
         getBoard(params.id);
     /* eslint-disable */
     }, [params.id])
-    console.log("ttttttttttttttt",board);
+
     return (<BoardDetailTemplate board={board} />);
 })
 

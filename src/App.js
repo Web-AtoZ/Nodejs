@@ -1,9 +1,12 @@
 import React from 'react';
-import Board from 'common/components/organisms/Board';
+import LeftSide from 'pages/LeftSide';
 
 function App() {
   return (
-    <Board/>
+    <>
+      <LeftSide/>
+      <h1>Hello, Web A to Z</h1>
+    </>
   );
 }
 
