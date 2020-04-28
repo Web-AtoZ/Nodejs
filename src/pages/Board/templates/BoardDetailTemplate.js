@@ -1,6 +1,6 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import BoardFormContainer from 'cocommon/components/organisms/Board/BoardFormContainer
+import BoardFormContainer from 'common/components/organisms/Board/BoardFormContainer';
 
 
 const BoardDetailTemplate = () => {
