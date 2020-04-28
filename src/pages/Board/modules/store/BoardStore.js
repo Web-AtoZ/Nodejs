@@ -16,7 +16,6 @@ class BoardStore {
     @action
     getBoard(id) {
         const findBoard = this.boardList.filter(({board_id}) => Number(id) === board_id);
-
         findBoard.length > 0 ? this.board = findBoard[0] : this.findById(id);
     }
 
@@ -42,6 +41,14 @@ class BoardStore {
         const {data, status} = await boardRepository.findById(id);
         
         if(status === 200) this.board = new Board(data);  
+    }
+
+    @action
+    async update(id, board) {
+        const param = new Board(board);
+        const {data, status} = await boardRepository.update(id, param);
+
+        if(status === 200) console.log(data);
     }
 
     // @action

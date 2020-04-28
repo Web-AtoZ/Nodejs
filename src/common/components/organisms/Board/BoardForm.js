@@ -17,11 +17,10 @@ const BoardForm = observer(() => {
   const history = useHistory();
   
   const onSubmit = data => {
-    const form = {...data, content:value}
+    const form = {...data, content:value};
     save(form)
       .then(history.push('/boards'))
       .catch(e=>console.log(e.message));
-    
   }
 
   return(
@@ -31,7 +30,6 @@ const BoardForm = observer(() => {
           label="Title"
           InputLabelProps={{shrink: true}}
           name='title'
-          style={{ margin: 8 }}
           placeholder="제목"
           fullWidth
           margin="normal"

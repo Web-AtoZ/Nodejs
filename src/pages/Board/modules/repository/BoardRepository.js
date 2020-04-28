@@ -18,6 +18,11 @@ class BoardRepository {
     save(boardModel) {
         return NoAuthAjax.post(this.URL, boardModel);
     }
+
+    update(id, boardModel) {
+        return NoAuthAjax.patch(`${this.URL}/${id}`, boardModel);
+    }
+
 }
 
 // 싱글톤으로 리턴
