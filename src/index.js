@@ -9,6 +9,7 @@ import NotFound from 'pages/NotFound';
 import Header from 'pages/Header';
 import User from 'pages/User';
 import Board from 'pages/Board';
+import Restaurant from 'pages/Restaurant/Index';
 
 const root = new RootStore(); // *** 루트 스토어 생성
 
@@ -22,6 +23,7 @@ ReactDOM.render(
             <Route exact path="/" component={App}/>
             <Route path="/users" component={User}/>
             <Route path="/boards" component={Board}/>
+            <Route path="/restaurant" component={Restaurant}/>
             <Route component={NotFound}/>
           </Switch>
         </Router>

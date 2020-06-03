@@ -1,0 +1,39 @@
+[
+  {
+    "restaurant_id": 1,
+    "name" : "부뚜막",
+    "road_address" : "서울특별시 관악구 남부순환로 1597-14 1층",
+    "phone" : "02-884-3692"
+  },
+  {
+    "restaurant_id": 2,
+    "name" : "깡통닭갈비",
+    "road_address" : "서울특별시 관악구 남부순환로176길 8",
+    "phone" : "02-884-3692"
+  },
+  {
+    "restaurant_id": 3,
+    "name" : "고베규카츠 신림점",
+    "road_address" : "서울특별시 관악구 신림동길 26 1층",
+    "phone" : "02-873-7770"
+  },
+  {
+    "restaurant_id": 4,
+    "name" : "부뚜막",
+    "road_address" : "서울특별시 관악구 남부순환로 1597-14 1층",
+    "phone" : "02-884-3692"
+  },
+  {
+    "restaurant_id": 5,
+    "name" : "깡통닭갈비",
+    "road_address" : "서울특별시 관악구 남부순환로176길 8",
+    "phone" : "02-884-3692"
+  },
+  {
+    "restaurant_id": 6,
+    "name" : "고베규카츠 신림점",
+    "road_address" : "서울특별시 관악구 신림동길 26 1층",
+    "phone" : "02-873-7770"
+  }
+]
+
