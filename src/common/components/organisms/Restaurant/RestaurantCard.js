@@ -16,7 +16,7 @@ const templateTablet = `
   thumbnail actions
 `
 
-const Flat = ({ name, road_address, phone }) => (
+const RestaurantCard = ({ name, road_address, phone }) => (
     <Card>
         <Composition
             template={templateMobile}
@@ -50,4 +50,4 @@ const Flat = ({ name, road_address, phone }) => (
     </Card>
 )
 
-export default Flat
+export default RestaurantCard

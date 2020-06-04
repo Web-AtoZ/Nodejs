@@ -1,8 +1,8 @@
 import React from 'react'
 import { Composition } from 'atomic-layout'
-import Flat from './Flat'
+import RestaurantCard from './RestaurantCard'
 
-const FlatsList = ({ data }) => (
+const RestaurantList = ({ data }) => (
     <Composition
         templateCols="repeat(auto-fit, 250px)"
         templateColsMd="repeat(2, 1fr)"
@@ -12,9 +12,9 @@ const FlatsList = ({ data }) => (
         gutterLg={25}
     >
         {data.map(flat => (
-            <Flat key={flat.restaurant_id} {...flat} />
+            <RestaurantCard key={flat.restaurant_id} {...flat} />
         ))}
     </Composition>
 )
 
-export default FlatsList
+export default RestaurantList

@@ -58,7 +58,7 @@ const LeftSide = () => {
             <ListItemIcon>
               <PeopleIcon/>
             </ListItemIcon>
-            <ListItemText primary="zz"/>
+            <ListItemText primary="Restaurant"/>
           </ListItem>
         </div>
         <div>
