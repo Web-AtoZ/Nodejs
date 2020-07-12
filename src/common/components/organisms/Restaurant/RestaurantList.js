@@ -12,7 +12,8 @@ const RestaurantList = ({ data }) => (
         gutterLg={25}
     >
         {data.map(flat => (
-            <RestaurantCard key={flat.restaurant_id} {...flat} />
+            console.log(flat)
+            // <RestaurantCard key={flat.restaurant_id} {...flat} />
         ))}
     </Composition>
 )
