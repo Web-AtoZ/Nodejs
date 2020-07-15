@@ -3,7 +3,7 @@ import {NoAuthAjax} from 'Api/Ajax';
 class RestaurantRepository {
     URL = "/restaurants";
 
-    constructor(props) {
+    constructor(props) {         
         Object.assign(this, props);
     }
 

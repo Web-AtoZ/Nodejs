@@ -11,7 +11,6 @@ class RestaurantModel {
     get restaurantId() {
         return this.restaurant_id;
     }
-
 }
 
 export default RestaurantModel;
