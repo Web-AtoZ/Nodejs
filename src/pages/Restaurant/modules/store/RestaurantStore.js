@@ -8,25 +8,33 @@ import {autobind} from 'core-decorators';
 class RestaurantStore {
     @observable restaurantList = [];
     @observable restaurant = new Restaurant();
+    @observable page = 0;
 
     constructor(rootStore) {
         this.rootStore = rootStore;
     }
 
+    // 더보기 클릭 시
+    @action
+    loadMore = () => {
+        this.page++;
+        this.findAll(this.page)
+    }
+
     // 비동기인 경우 @action 대신 @asyncAction
     @action
-    async findAll() {
-        const {data, status} = await RestaurantRepository.findAll()
+    async findAll(page=0) {
+        const {data, status} = await RestaurantRepository.findAll(page)
             , {_embedded: {restaurants}} = data;
 
-        if (status === 200) this.restaurantList = restaurants.map(
-            restaurant => {
-                console.log("여긴")
-                console.log(restaurant)
-                new RestaurantModel(restaurant)
+        if (status === 200) {
+            let temp = restaurants.map(restaurant => {
+                return new RestaurantModel(restaurant)
             });
-        console.log("여기가 왜 undefined로 넘어오지")
-        console.log(this.restaurantList)
+
+            this.restaurantList = this.restaurantList.concat(temp)
+
+        }
     }
 }
 

@@ -39,9 +39,6 @@ const RestaurantCard = ({ name, road_address, phone }) => (
                         </Text>
                     </Heading>
                     <Actions flex align="flex-end">
-                        <Only from="md" marginRight={10}>
-                            <Button />
-                        </Only>
                       <Button variant="contained" color="primary">자세히보기</Button>
                     </Actions>
                 </>

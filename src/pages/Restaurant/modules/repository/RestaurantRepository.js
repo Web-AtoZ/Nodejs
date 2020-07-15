@@ -7,8 +7,8 @@ class RestaurantRepository {
         Object.assign(this, props);
     }
 
-    findAll() {
-        return NoAuthAjax.get(this.URL);
+    findAll(page) {
+        return NoAuthAjax.get(this.URL + "?page=" + page);
     }
 }
 
