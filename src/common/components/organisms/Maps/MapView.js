@@ -1,36 +1,40 @@
-import {useHistory} from "react-router-dom";
-import MaterialButton from "../../atoms/Button/MaterialButton";
 import React from "react";
 
-import {RenderAfterNavermapsLoaded, NaverMap, Marker} from 'react-naver-maps'
+import {
+  NaverMap,
+  Marker, RenderAfterNavermapsLoaded,
+} from 'react-naver-maps'
+import {withNavermaps} from "react-naver-maps/dist/hocs.esm";
 import CLIENT_ID from "../../../../Config/NaverMapsClientId";
 
-const MapView = ({latLngObjList}) => {
+
+const MapView = ({data}) => {
+  const map = withNavermaps('maps-getting-started-uncontrolled');
+  const navermap =  window.naver.maps;
 
   return (
       <>
-        <RenderAfterNavermapsLoaded
-            ncpClientId={CLIENT_ID.NAVER_MAPS_CLIENT_ID}
-            error={<p>Maps Load Error</p>}
-            loading={<p>Maps Loading...</p>}
+        <NaverMap
+            mapDivId={'maps-getting-started-uncontrolled'} // default: react-naver-map
+            style={{
+              width: '100%',
+              height: '400px',
+            }}
+            defaultCenter={navermap.TransCoord.fromTM128ToLatLng(navermap.Point(data[0].mapx,data[0].mapy))}
+            defaultZoom={15}
         >
-          <NaverMap
-              mapDivId={'maps-getting-started-uncontrolled'} // default: react-naver-map
-              style={{
-                width: '100%',
-                height: '400px',
-              }}
-              defaultCenter={{lat: 37.3595704, lng: 127.105399}}
-              defaultZoom={10}
-          >
-            <Marker
-                key={1}
-                position={{lat: 37.3595704, lng: 127.105399}}
-                animation={2}
-                onClick={() => {alert('여기는 N서울타워입니다.');}}
-            />
-          </NaverMap>
-        </RenderAfterNavermapsLoaded>
+          {data.map(restaurant => (
+              <Marker key={restaurant.restaurant_id}
+                      position={navermap.TransCoord.fromTM128ToLatLng(navermap.Point(restaurant.mapx, restaurant.mapy))}
+                      animation={2}
+                      onClick={() => {
+                        alert(restaurant.name);
+                      }}
+                      moustUp={() => {
+                        console.log(restaurant.name)
+                      }}
+              />))}
+        </NaverMap>
       </>
   );
 }

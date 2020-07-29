@@ -5,6 +5,9 @@ import RestaurantList
   from '../../../common/components/organisms/Restaurant/RestaurantList';
 import Button from "../../../common/components/atoms/Button";
 import MapView from "../../../common/components/organisms/Maps/MapView";
+import CLIENT_ID from "../../../Config/NaverMapsClientId";
+import {RenderAfterNavermapsLoaded} from "react-naver-maps";
+
 
 export default observer(
     function RestaurantListTemplate({restaurantList, loadMore}) {
@@ -12,7 +15,14 @@ export default observer(
       return (
           <>
             <Grid item xs={5}>
-              <MapView></MapView>
+              <RenderAfterNavermapsLoaded
+                  ncpClientId={CLIENT_ID.NAVER_MAPS_CLIENT_ID}
+                  error={<p>Maps Load Error</p>}
+                  loading={<p>Maps Loading...</p>}
+                  submodules={["geocoder"]}
+              >
+              <MapView data={restaurantList}/>
+              </RenderAfterNavermapsLoaded>
             </Grid>
             <Grid
                 item={true}
