@@ -4,6 +4,7 @@ import { useLocation, useHistory } from 'react-router-dom';
 import queryString from 'query-string';
 import { DownCircleFilled, HeartOutlined, EditOutlined, RightCircleFilled } from '@ant-design/icons';
 import Header from 'pages/Header';
+import NaverMapContainer from 'common/components/organisms/NaverMap/NaverMapContainer';
 
 const { Content, Sider } = Layout;
 
@@ -125,7 +126,9 @@ const ListContainer = () => {
 							</List.Item>
 						)}></List>
 				</Card>
-				<Content style={{ margin: '0 0 0 15px' }}>지도</Content>
+				<Content style={{ margin: '0 0 0 15px' }}>
+					<NaverMapContainer />
+				</Content>
 			</div>
 		</Layout>
 	);

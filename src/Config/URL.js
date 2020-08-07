@@ -1,3 +1,2 @@
-export default {
-  SPRING_BACKEND_API: process.env.REACT_APP_SPRING_BACKEND_API,
-};
+export const SPRING_BACKEND_API = process.env.REACT_APP_SPRING_BACKEND_API;
+export const NAVER_MAPS_CLIENT_ID = process.env.REACT_APP_NAVER_MAPS_CLIENT_ID;

@@ -10540,7 +10540,7 @@ react-is@^16.12.0, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.0, react-i
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-react-naver-maps@0.0.13:
+react-naver-maps@^0.0.13:
   version "0.0.13"
   resolved "https://registry.yarnpkg.com/react-naver-maps/-/react-naver-maps-0.0.13.tgz#c677fd4ad6805e50abb52ea0264c4a474d2b789f"
   integrity sha512-d4tagxVILGTzRaIW+GwFjZ9HhoBoODFy/Ly0ClWZ9neIJ7QCzCw/x0OPmZUYki0Kke6KcngQm6/mhx+mVdh3ug==
