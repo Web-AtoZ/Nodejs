@@ -14,10 +14,17 @@ class NaverApiStore {
 	// 비동기인 경우 @action 대신 @asyncAction
 	@action
 	async getMyPlace(param) {
-		const queryParam = queryString.stringify(param);
+		const defaultParam = {
+			request: 'coordsToaddr',
+			orders: 'roadaddr',
+			output: 'json',
+		};
+
+		const queryParam = queryString.stringify({ ...param, ...defaultParam });
 		const { data, status } = await NaverApiRepository.getReverseGeocoding(queryParam);
 		if (status === 200) {
-			console.log(data);
+			const { results } = data;
+			this.myPlace = results[0];
 		}
 	}
 }

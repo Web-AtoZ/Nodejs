@@ -11,6 +11,7 @@ const { Content, Sider } = Layout;
 const data = [
 	{
 		title: '삼촌네',
+		link: 'https://placeimg.com/90/90/tech',
 		category: '백순대, 순대',
 		address: '서울특별시 관악구 신림동 1640-31 민속순대타운306호',
 		location: '신림',
@@ -20,6 +21,7 @@ const data = [
 	},
 	{
 		title: '온정돈까스',
+		link: 'https://placeimg.com/90/90/nature',
 		category: '매운돈까스, 돈까스',
 		address: '서울특별시 관악구 신림동 546-1',
 		location: '신대방',
@@ -29,6 +31,7 @@ const data = [
 	},
 	{
 		title: '아리차이',
+		link: 'https://placeimg.com/90/90/arch',
 		category: '딤섬, 중국집',
 		address: '서울특별시 관악구 신림동 1430-11',
 		location: '신림',
@@ -38,6 +41,7 @@ const data = [
 	},
 	{
 		title: '신림집',
+		link: 'https://placeimg.com/90/90/animals',
 		category: '냉동삼겹살, 삼겹살',
 		address: '서울특별시 관악구 신림동 1639-30',
 		location: '신림동',
@@ -98,7 +102,9 @@ const ListContainer = () => {
 						renderItem={(item, index) => (
 							<List.Item key={item.id}>
 								<div style={{ display: 'flex' }}>
-									<div style={{ width: 90, height: 90, background: 'yellow' }}>그림</div>
+									<div style={{ width: 90, height: 90 }}>
+										<img src={item.link} />
+									</div>
 									<div style={{ paddingLeft: 15, width: 300 }}>
 										<div style={{ display: 'flex', justifyContent: 'space-between' }}>
 											<div style={{ fontWeight: 600, fontSize: '1.1rem' }}>

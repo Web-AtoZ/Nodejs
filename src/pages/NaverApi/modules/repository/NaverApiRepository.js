@@ -1,14 +1,18 @@
 import axios from 'axios';
-
+import { NAVER_MAPS_CLIENT_ID, NAVER_MAPS_CLIENT_SECRET } from 'Config/URL';
 class NaverApiRepository {
-	URL = 'https://naveropenapi.apigw.ntruss.com';
+	URL = '/map-reversegeocode/v2/gc';
 
 	constructor(props) {
 		Object.assign(this, props);
 	}
 
 	getReverseGeocoding(param) {
-		return axios.get(`${this.URL}/map-reversegeocode/v2/gc?${param}`);
+		const headers = {
+			'X-NCP-APIGW-API-KEY-ID': NAVER_MAPS_CLIENT_ID,
+			'X-NCP-APIGW-API-KEY': NAVER_MAPS_CLIENT_SECRET,
+		};
+		return axios.get(`${this.URL}?${param}`, { headers: headers });
 	}
 }
 

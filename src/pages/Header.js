@@ -26,11 +26,11 @@ const styleHeader = {
 	background: 'white',
 	padding: '0 25%',
 	display: 'flex',
+	height: '80px',
 };
 
 const styleSearchBox = {
 	margin: '10px 15px 0 15px',
 	width: 480,
 	height: 45,
-	lineHeight: 20,
 };
