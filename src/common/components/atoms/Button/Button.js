@@ -21,6 +21,7 @@ const StyledButton = styled.button`
     background: ${palette.gray[6]};
   }
 
+  
   ${props =>
     props.fullWidth &&
     css`

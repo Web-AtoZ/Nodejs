@@ -1,35 +1,36 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
-import {useHistory} from 'react-router-dom';
+import { Layout } from 'antd';
+
+import SearchBox from 'common/components/organisms/Search/SearchBox';
+const { Header: AntdHeader } = Layout;
+
 const Header = () => {
-  const history = useHistory();
-  const classes = useStyles();
-  return(
-    <Grid container>
-      <Grid item xs={11}>
-        <Paper className={classes.paper}>Web A to Z</Paper>
-      </Grid>
-      <Grid item xs={1}>
-        <Button size="small" variant="outlined" onClick={()=>history.push('/users/login')}>
-            Login
-        </Button>
-        <Button size="small" variant="outlined" onClick={()=>history.push('/users/join')}>
-            Signup
-        </Button>
-      </Grid>
-    </Grid>
-  );
-} 
+	return (
+		<AntdHeader style={styleHeader}>
+			<div className='logo' style={{ width: 200 }}>
+				로고
+			</div>
+			<div style={{ width: 570 }}>
+				<SearchBox style={styleSearchBox} placeholder='음식명으로 주변 맛집을 찾아보세요' />
+			</div>
+			<div style={{ width: 90, fontSize: '8pt' }}>
+				<span>로그인 | 회원가입</span>
+			</div>
+		</AntdHeader>
+	);
+};
 
 export default Header;
 
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  },
-}));
+const styleHeader = {
+	background: 'white',
+	padding: '0 25%',
+	display: 'flex',
+	height: '80px',
+};
+
+const styleSearchBox = {
+	margin: '10px 15px 0 15px',
+	width: 480,
+	height: 45,
+};

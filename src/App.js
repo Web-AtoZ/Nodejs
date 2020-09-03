@@ -1,13 +1,22 @@
 import React from 'react';
-import LeftSide from 'pages/LeftSide';
+import { Route, Switch } from 'react-router-dom';
+import NotFound from 'pages/NotFound';
+import Main from 'pages/Main';
+import Header from 'pages/Header';
+import SearchContainer from 'pages/Search/SearchContainer';
+import ListContainer from 'pages/List/ListContainer';
 
 function App() {
-  return (
-    <>
-      <LeftSide/>
-      <h1>Hello, Web A to Z</h1>
-    </>
-  );
+	return (
+		<div>
+			<Header />
+			<Switch>
+				<Route exact path='/' component={Main} />
+				<Route exact path='/search' component={SearchContainer} />
+				<Route component={NotFound} />
+			</Switch>
+		</div>
+	);
 }
 
 export default App;
